@@ -2,10 +2,13 @@
 module.exports = {
 	content: [
 		// Keep existing values and append the following:
-		require('path').join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}')
+		require('path').join(require.resolve('@skeletonlabs/skeleton'), '../**/*.{html,js,svelte,ts}'),
+		'./src/**/*.{html,js,svelte,ts}'
 	],
 	theme: {
-		extend: {}
+		extend: {
+			
+		}
 	},
 	plugins: [
 		// Keep any existing plugins present and append the following:

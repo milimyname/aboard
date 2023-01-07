@@ -11,7 +11,9 @@ const config = {
 		adapter: adapter(),
 		alias: {
 			'@components': path.resolve('./src/components'),
-			'@lib': path.resolve('./src/lib')
+			'@lib': path.resolve('./src/lib'),
+			'@assets': path.resolve('./src/lib/assets'),
+			'@stores': path.resolve('./src/stores')
 		}
 	}
 };
