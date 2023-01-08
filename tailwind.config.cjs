@@ -7,7 +7,15 @@ module.exports = {
 	],
 	theme: {
 		extend: {
-			
+			colors: {
+				'p-cyan': '#A6D1E6'
+			},
+			gridTemplateColumns: {
+				board: 'repeat(4, minmax(24rem, 1fr))'
+			},
+			fontFamily: {
+				sans: ['Livvic', 'sans-serif']
+			}
 		}
 	},
 	plugins: [

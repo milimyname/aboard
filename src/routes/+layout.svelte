@@ -1,12 +1,13 @@
 <script lang="ts">
 	import '../app.css';
+	import '@skeletonlabs/skeleton/styles/all.css';
 	import { AppShell } from '@skeletonlabs/skeleton';
 	import Sidebar from '@components/sidebar.svelte';
 	import Footer from '@components/footer.svelte';
 	import Header from '@components/header.svelte';
 </script>
 
-<AppShell>
+<AppShell slotSidebarLeft="py-8 px-12 h-full" slotPageHeader="py-6 flex justify-between">
 	<svelte:fragment slot="sidebarLeft">
 		<Sidebar />
 	</svelte:fragment>

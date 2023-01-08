@@ -1,3 +1,8 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import Board from '@components/board.svelte';
+</script>
 
+<!-- Kanban Board -->
+<div class="grid grid-cols-board gap-x-10 overflow-x-scroll scroll-smooth snap-x h-full ">
+	<Board />
+</div>
