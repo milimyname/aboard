@@ -5,14 +5,14 @@
 	import { slide } from 'svelte/transition';
 	import { sineIn, sineInOut } from 'svelte/easing';
 	import { Avatar } from '@skeletonlabs/skeleton';
-	let disabled = false;
-
-	// If config.disabled is true, the sidebar will be hidden
+	import { disabled, theme } from '@stores/stores';
 
 	// Toggle the sun icon to moon icon
-	let isDarkMode = false;
 	const toggleDarkMode = () => {
-		isDarkMode = !isDarkMode;
+		theme.update((value) => {
+			if (value === 'dark') return 'light';
+			else return 'dark';
+		});
 	};
 </script>
 
@@ -22,28 +22,34 @@
 
 		<a
 			href="/notification"
-			class={disabled ? 'cursor-pointer' : 'cursor-not-allowed pointer-events-none'}
+			class={$disabled ? 'cursor-pointer' : 'cursor-not-allowed pointer-events-none'}
 		>
-			<Inbox color={disabled ? '#000' : '#999'} />
+			<Inbox color={$disabled ? '#000' : '#999'} />
 		</a>
 		<a href="/">
 			<Layers />
 		</a>
-		<a href="/views" class={disabled ? 'cursor-pointer' : 'cursor-not-allowed pointer-events-none'}>
-			<CalendarDays color={`${disabled ? '#000' : '#999'}`} />
+		<a
+			href="/views"
+			class={$disabled ? 'cursor-pointer' : 'cursor-not-allowed pointer-events-none'}
+		>
+			<CalendarDays color={`${$disabled ? '#000' : '#999'}`} />
 		</a>
 		<a
 			href="/analytics"
-			class={disabled ? 'cursor-pointer' : 'cursor-not-allowed pointer-events-none'}
+			class={$disabled ? 'cursor-pointer' : 'cursor-not-allowed pointer-events-none'}
 		>
-			<FileLineChart color={`${disabled ? '#000' : '#999'}`} />
+			<FileLineChart color={`${$disabled ? '#000' : '#999'}`} />
 		</a>
-		<a href="/saved" class={disabled ? 'cursor-pointer' : 'cursor-not-allowed pointer-events-none'}>
-			<Star color={`${disabled ? '#000' : '#999'}`} />
+		<a
+			href="/saved"
+			class={$disabled ? 'cursor-pointer' : 'cursor-not-allowed pointer-events-none'}
+		>
+			<Star color={`${$disabled ? '#000' : '#999'}`} />
 		</a>
 		<a
 			href="/profile"
-			class={disabled ? 'cursor-pointer' : 'cursor-not-allowed pointer-events-none'}
+			class={$disabled ? 'cursor-pointer' : 'cursor-not-allowed pointer-events-none'}
 		>
 			<Avatar initials="KJ" width="w-8" background="bg-yellow-200" />
 		</a>
@@ -51,7 +57,7 @@
 
 	<li class="flex flex-col items-center justify-between h-24 ">
 		<button on:click={toggleDarkMode}>
-			{#if isDarkMode}
+			{#if $theme === 'dark'}
 				<div transition:slide={{ duration: 300, easing: sineIn }}>
 					<Moon />
 				</div>

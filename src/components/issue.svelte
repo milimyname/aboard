@@ -7,14 +7,17 @@
 	import LowPriority from '@assets/medium-priority.svg';
 	import Button from '@components/button.svelte';
 	import { Avatar } from '@skeletonlabs/skeleton';
+	import { onDragStart } from '@lib/hooks/onDragStart';
 
 	export let title: string;
 	export let description: string;
 	export let priority: string;
 	export let assignee: string;
 	export let labels: string[];
+
 	export let columnIndex: number;
 	export let issueIndex: number;
+
 	// Logic for priority
 	let priorityIcon: string;
 
@@ -27,24 +30,12 @@
 			priorityIcon = LowPriority;
 		}
 	}
-
-	function dragStart(
-		event: DragEvent & {
-			currentTarget: EventTarget & HTMLDivElement;
-		},
-		oldColumnIndex: number,
-		issueIndex: number
-	) {
-		// Add blurred class to current target
-		event.currentTarget.classList.add('blur-sm');
-		event.dataTransfer?.setData('text', JSON.stringify({ oldColumnIndex, issueIndex }));
-	}
 </script>
 
 <div
 	class="bg-white rounded-lg shadow-sm p-4 mt-4 border-2 border-black min-h-52 cursor-pointer dragging"
 	draggable={true}
-	on:dragstart={(event) => dragStart(event, columnIndex, issueIndex)}
+	on:dragstart={(event) => onDragStart(event, columnIndex, issueIndex)}
 	on:dragend={(event) => {
 		event.currentTarget.classList.remove('blur-sm');
 	}}

@@ -17,7 +17,7 @@
 	<svelte:fragment slot="pageHeader">
 		<Header />
 	</svelte:fragment>
-	<slot />
+	<slot class="overflow hidden" />
 	<!-- ---- / ---- -->
 	<svelte:fragment slot="pageFooter">
 		<Footer />
