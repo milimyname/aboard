@@ -13,8 +13,8 @@
 	export let priority: string;
 	export let assignee: string;
 	export let labels: string[];
-	export let colors: string[];
-
+	export let columnIndex: number;
+	export let issueIndex: number;
 	// Logic for priority
 	let priorityIcon: string;
 
@@ -27,9 +27,28 @@
 			priorityIcon = LowPriority;
 		}
 	}
+
+	function dragStart(
+		event: DragEvent & {
+			currentTarget: EventTarget & HTMLDivElement;
+		},
+		oldColumnIndex: number,
+		issueIndex: number
+	) {
+		// Add blurred class to current target
+		event.currentTarget.classList.add('blur-sm');
+		event.dataTransfer?.setData('text', JSON.stringify({ oldColumnIndex, issueIndex }));
+	}
 </script>
 
-<div class="bg-white rounded-lg shadow-sm p-4 mt-4 border-2 border-black min-h-52">
+<div
+	class="bg-white rounded-lg shadow-sm p-4 mt-4 border-2 border-black min-h-52 cursor-pointer dragging"
+	draggable={true}
+	on:dragstart={(event) => dragStart(event, columnIndex, issueIndex)}
+	on:dragend={(event) => {
+		event.currentTarget.classList.remove('blur-sm');
+	}}
+>
 	<div class="flex justify-between mb-6">
 		<div>
 			<h2 class="text-xl font-medium">{title}</h2>
@@ -39,8 +58,8 @@
 	</div>
 	<div class="flex justify-between">
 		<div class="flex gap-4">
-			{#each labels as label, i}
-				<Button text={label} color={colors[i]} />
+			{#each labels as label}
+				<Button text={label} />
 			{/each}
 		</div>
 		<Avatar src={assignee} width="w-12" />

@@ -1,7 +1,28 @@
 <script lang="ts">
 	// props
 	export let text: string;
-	export let color: string;
+
+	// Color logic based on text
+	let bgColor: string;
+
+	$: {
+		switch (text) {
+			case 'bug':
+				bgColor = 'bg-red';
+				break;
+			case 'feature':
+				bgColor = 'bg-p-cyan';
+				break;
+			case 'design':
+				bgColor = 'border-1 border-black';
+				break;
+			case 'draft':
+				bgColor = 'bg-gray-200';
+				break;
+			default:
+				bgColor = 'bg-black';
+		}
+	}
 </script>
 
-<button class="btn bg-{color} text-white rounded-md font-semibold tracking-wider">{text}</button>
+<button class="btn {bgColor} text-white rounded-md font-semibold tracking-wider">{text}</button>

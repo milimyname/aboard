@@ -7,7 +7,10 @@
 	import Header from '@components/header.svelte';
 </script>
 
-<AppShell slotSidebarLeft="py-8 px-12 h-full" slotPageHeader="py-6 flex justify-between">
+<AppShell
+	slotSidebarLeft="py-8 px-12 h-full"
+	slotPageHeader="py-6 flex justify-between items-center "
+>
 	<svelte:fragment slot="sidebarLeft">
 		<Sidebar />
 	</svelte:fragment>
