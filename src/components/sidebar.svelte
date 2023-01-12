@@ -1,22 +1,25 @@
 <script>
 	// @ts-ignore
 	import logo from '@assets/logo.png';
-	import { Sun, Inbox, Layers, CalendarDays, FileLineChart, Star, Moon } from 'lucide-svelte';
-	import { slide } from 'svelte/transition';
-	import { sineIn, sineInOut } from 'svelte/easing';
+	import { Inbox, Layers, CalendarDays, FileLineChart, Star } from 'lucide-svelte';
 	import { Avatar } from '@skeletonlabs/skeleton';
-	import { disabled, theme } from '@stores/stores';
+	import { disabled } from '@stores/stores';
+	import { LightSwitch } from '@skeletonlabs/skeleton';
+	import { storePrefersDarkScheme, storeLightSwitch } from '@skeletonlabs/skeleton';
+	import { onMount } from 'svelte';
 
-	// Toggle the sun icon to moon icon
-	const toggleDarkMode = () => {
-		theme.update((value) => {
-			if (value === 'dark') return 'light';
-			else return 'dark';
-		});
+	onMount(() => {
+		if (storeLightSwitch || storePrefersDarkScheme)
+			document.querySelector('.fill-current')?.classList.add('fix-fill-color');
+	});
+
+	const onClick = () => {
+		if (storeLightSwitch || storePrefersDarkScheme)
+			document.querySelector('.fill-current')?.classList.toggle('fix-fill-color');
 	};
 </script>
 
-<ul class="flex flex-col justify-between items-center h-full">
+<ul class="flex flex-col justify-between items-center h-full ">
 	<li class="flex-1 flex flex-col justify-center items-center  gap-10">
 		<!-- Disable link -->
 
@@ -27,7 +30,7 @@
 			<Inbox color={$disabled ? '#000' : '#999'} />
 		</a>
 		<a href="/">
-			<Layers />
+			<Layers color={$storeLightSwitch ? '#fff' : '#000'} />
 		</a>
 		<a
 			href="/views"
@@ -56,17 +59,7 @@
 	</li>
 
 	<li class="flex flex-col items-center justify-between h-24 ">
-		<button on:click={toggleDarkMode}>
-			{#if $theme === 'dark'}
-				<div transition:slide={{ duration: 300, easing: sineIn }}>
-					<Moon />
-				</div>
-			{:else}
-				<div transition:slide={{ duration: 300, easing: sineInOut }}>
-					<Sun />
-				</div>
-			{/if}
-		</button>
+		<LightSwitch on:click={onClick} />
 		<a href="/">
 			<img src={logo} alt="Aboard Logo" />
 		</a>

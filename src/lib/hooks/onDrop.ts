@@ -7,6 +7,7 @@ export function onDrop(
 	},
 	columnIndex: number
 ) {
+	// Return event dataTransfer if null
 	if (!event.dataTransfer?.getData('text')) return;
 
 	// Subscribe boardData to currentBoardData

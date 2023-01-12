@@ -7,3 +7,7 @@ html,
 body {
 	@apply h-full overflow-hidden;
 }
+
+.fix-fill-color {
+	fill: white !important;
+}

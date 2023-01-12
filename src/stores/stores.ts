@@ -2,7 +2,6 @@ import { writable } from 'svelte/store';
 import type { BoardDataType } from '@lib/types';
 
 export const disabled = writable(false);
-export const theme = writable('light');
 
 export const boardData = writable<BoardDataType[]>([
 	{
