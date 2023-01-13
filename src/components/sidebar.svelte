@@ -59,9 +59,11 @@
 	</li>
 
 	<li class="flex flex-col items-center justify-between h-24 ">
-		<LightSwitch on:click={onClick} />
 		<a href="/">
 			<img src={logo} alt="Aboard Logo" />
 		</a>
+		<div class=" border border-1 border-p-blue rounded-full">
+			<LightSwitch on:click={onClick} />
+		</div>
 	</li>
 </ul>

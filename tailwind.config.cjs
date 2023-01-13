@@ -9,7 +9,8 @@ module.exports = {
 	theme: {
 		extend: {
 			colors: {
-				'p-cyan': '#A6D1E6'
+				'p-cyan': '#A6D1E6',
+				'p-blue': '#2B3467'
 			},
 			gridTemplateColumns: {
 				board: 'repeat(4, minmax(24rem, 1fr))'

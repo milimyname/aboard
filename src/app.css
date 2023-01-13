@@ -11,3 +11,7 @@ body {
 .fix-fill-color {
 	fill: white !important;
 }
+
+.scrollbar-none {
+	scrollbar-width: none;
+}
