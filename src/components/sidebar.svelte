@@ -9,7 +9,7 @@
 	import { onMount } from 'svelte';
 
 	onMount(() => {
-		if (storeLightSwitch || storePrefersDarkScheme)
+		if (storePrefersDarkScheme)
 			document.querySelector('.fill-current')?.classList.add('fix-fill-color');
 	});
 

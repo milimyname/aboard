@@ -1,15 +1,17 @@
 <script lang="ts">
 	import { PlusCircle, AlignRight } from 'lucide-svelte';
-	import Issue from '@components/issue.svelte';
+	import { storeLightSwitch } from '@skeletonlabs/skeleton';
 	import { flip } from 'svelte/animate';
+	import Issue from '@components/issue.svelte';
 	import { boardData } from '@stores/stores';
 	import { onDrop } from '@lib/hooks/onDrop';
-	import { storeLightSwitch } from '@skeletonlabs/skeleton';
 	import { onAdd } from '@lib/hooks/onAdd';
+
+	
 </script>
 
 {#each $boardData as column, columnIndex (column)}
-	{@const capitalizedFirstLetter = column.title[0].toUpperCase() + column.title.slice(1)}
+	{@const capitalizedFirstLetter = column.status[0].toUpperCase() + column.status.slice(1)}
 	<section class="overflow-x-hidden">
 		<div
 			class="flex items-center justify-between sticky top-0 px-4 py-2 rounded-sm z-10 {`${

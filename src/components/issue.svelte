@@ -10,10 +10,13 @@
 	import { onDragStart } from '@lib/hooks/onDragStart';
 
 	export let title: string;
-	export let description: string;
+	export let id: string;
 	export let priority: string;
+	export let status: string;
+	export let description: string;
 	export let assignee: string;
-	export let labels: string[];
+	export let label: string;
+	export let deadline: string;
 
 	export let columnIndex: number;
 	export let issueIndex: number;
@@ -43,15 +46,14 @@
 	<div class="flex justify-between mb-6">
 		<div>
 			<h2 class="text-xl font-medium">{title}</h2>
-			<p class="text-sm ">{description}</p>
+			<p class="text-sm ">{id}</p>
 		</div>
 		<img src={priorityIcon} alt="High Priority" class="w-6 h-6" />
 	</div>
 	<div class="flex justify-between">
 		<div class="flex gap-4">
-			{#each labels as label}
-				<Button text={label} />
-			{/each}
+			<Button text={label} />
+			<Button text={deadline} />
 		</div>
 		<Avatar src={assignee} width="w-12" />
 	</div>

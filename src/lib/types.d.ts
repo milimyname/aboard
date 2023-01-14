@@ -1,9 +1,12 @@
 export type IssueType = {
 	title: string;
+	id: string;
 	description: string;
 	priority: string;
 	assignee: string;
-	labels: string[];
+	label: string;
+	deadline: string;
+	status: string;
 };
 
 export type ColumnsType = {
@@ -14,12 +17,6 @@ export type ColumnsType = {
 
 export type BoardDataType = {
 	[key: number]: string | number;
-	title: string;
-	issues: {
-		title: string;
-		description: string;
-		priority: string;
-		assignee: string;
-		labels: string[];
-	}[];
+	status: string;
+	issues: IssueType[];
 };

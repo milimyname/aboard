@@ -5,50 +5,62 @@ export const disabled = writable(false);
 
 export const boardData = writable<BoardDataType[]>([
 	{
-		title: 'backlog',
+		status: 'backlog',
 		issues: [
 			{
 				title: 'Create a new Kanban board',
-				description: 'TP222',
+				id: 'TP222',
 				priority: 'high',
 				assignee: 'https://avatars.githubusercontent.com/u/46004116?v=4',
-				labels: ['feature', 'in a day']
+				label: 'feature',
+				deadline: '2021-08-01',
+				description: 'Create a new Kanban board',
+				status: 'backlog'
 			}
 		]
 	},
 	{
-		title: 'in progress',
+		status: 'in progress',
 		issues: [
 			{
 				title: 'Refactor the code',
-				description: 'LK22',
+				id: 'LK22',
 				priority: 'high',
 				assignee: 'https://avatars.githubusercontent.com/u/13323999?v=4',
-				labels: ['feature', 'in a day']
+				label: 'feature',
+				deadline: '2021-08-01',
+				description: 'Refactor the code',
+				status: 'in progress'
 			}
 		]
 	},
 	{
-		title: 'pending',
+		status: 'pending',
 		issues: [
 			{
 				title: 'Create a new post for the blog',
-				description: 'LL11',
+				id: 'LL11',
 				priority: 'medium',
-				assignee: 'https://avatars.githubusercontent.com/u/3233333?v=4',
-				labels: ['feature', 'in a day']
+				assignee: 'https://avatars.githubusercontent.com/u/32333?v=4',
+				label: 'feature',
+				deadline: '2021-08-01',
+				description: 'Create a new post for the blog',
+				status: 'pending'
 			}
 		]
 	},
 	{
-		title: 'done',
+		status: 'done',
 		issues: [
 			{
 				title: 'Create a new post for the blog',
-				description: 'LL11',
+				id: 'LL11',
 				priority: 'medium',
 				assignee: 'https://avatars.githubusercontent.com/u/3233333?v=4',
-				labels: ['feature', 'in a day']
+				label: 'feature',
+				deadline: '2021-08-01',
+				description: 'Create a new post for the blog',
+				status: 'done'
 			}
 		]
 	}
