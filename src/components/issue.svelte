@@ -8,6 +8,7 @@
 	import Button from '@components/button.svelte';
 	import { Avatar } from '@skeletonlabs/skeleton';
 	import { onDragStart } from '@lib/hooks/onDragStart';
+	import { onClickIssue } from '@lib/hooks/onClickIssue';
 
 	export let title: string;
 	export let id: string;
@@ -42,6 +43,8 @@
 	on:dragend={(event) => {
 		event.currentTarget.classList.remove('blur-sm');
 	}}
+	on:click={() => onClickIssue(id)}
+	on:keypress|preventDefault
 >
 	<div class="flex justify-between mb-6">
 		<div>

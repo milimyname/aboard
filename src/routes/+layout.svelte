@@ -1,7 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import '@skeletonlabs/skeleton/styles/all.css';
-	import { AppShell } from '@skeletonlabs/skeleton';
+	import { AppShell, drawerStore } from '@skeletonlabs/skeleton';
 	import Sidebar from '@components/sidebar.svelte';
 	import Footer from '@components/footer.svelte';
 	import Header from '@components/header.svelte';
@@ -16,7 +16,12 @@
 	slotPageFooter="dark:bg-black dark:text-white p-4"
 >
 	<Drawer>
-		<Form />
+		{#if $drawerStore.id === 'add'}
+			<Form />
+		{/if}
+		{#if $drawerStore.id === 'edit'}
+			<Form content={$drawerStore.meta} id={$drawerStore.id} />
+		{/if}
 	</Drawer>
 	<svelte:fragment slot="sidebarLeft">
 		<Sidebar />
