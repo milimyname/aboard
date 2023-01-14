@@ -9,7 +9,8 @@
 		status: '',
 		label: '',
 		deadline: '',
-		description: ''
+		description: '',
+		id: ''
 	};
 
 	export let id: string = '';
@@ -38,6 +39,18 @@
 			bind:value={content.title}
 		/>
 	</div>
+	{#if content.id !== ''}
+		<div class="flex gap-12">
+			<label for="id" class="w-10">ID</label>
+			<input
+				type="text"
+				name="id"
+				class="form-input dark:text-black dark:contrast-50"
+				bind:value={content.id}
+				readonly
+			/>
+		</div>
+	{/if}
 	<div class="flex flex-col gap-4 py-12 border-y-2 border-grey-500">
 		<div class="flex gap-12">
 			<label for="priority" class="w-10">Priority</label>
@@ -61,8 +74,8 @@
 				bind:value={content.status}
 			>
 				<option value="backlog">Backlog</option>
-				<option value="in-progress">In Progress</option>
-				<option value="todo">Pending</option>
+				<option value="in progress">In Progress</option>
+				<option value="pending">Pending</option>
 				<option value="done">Done</option>
 			</select>
 		</div>
@@ -88,7 +101,7 @@
 			<input
 				type="date"
 				name="deadline"
-				class="form-input dark:text-black"
+				class="form-input dark:text-black dark:contrast-50"
 				required
 				bind:value={content.deadline}
 			/>

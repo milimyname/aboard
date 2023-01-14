@@ -5,23 +5,21 @@
 	// Color logic based on text
 	let bgColor: string;
 
-	$: {
-		switch (text) {
-			case 'bug':
-				bgColor = 'bg-red';
-				break;
-			case 'feature':
-				bgColor = 'bg-p-cyan';
-				break;
-			case 'design':
-				bgColor = 'border-1 border-black';
-				break;
-			case 'draft':
-				bgColor = 'bg-gray-200';
-				break;
-			default:
-				bgColor = 'bg-black';
-		}
+	switch (text) {
+		case 'bug':
+			bgColor = 'bg-red-500';
+			break;
+		case 'feature':
+			bgColor = 'bg-p-cyan';
+			break;
+		case 'design':
+			bgColor = 'border-1 border-black';
+			break;
+		case 'draft':
+			bgColor = 'bg-gray-200';
+			break;
+		default:
+			bgColor = 'bg-black';
 	}
 </script>
 

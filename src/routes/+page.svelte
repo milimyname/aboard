@@ -3,11 +3,25 @@
 	import { storeLightSwitch } from '@skeletonlabs/skeleton';
 	import { flip } from 'svelte/animate';
 	import Issue from '@components/issue.svelte';
-	import { boardData } from '@stores/stores';
+	import { boardData, localStorageBoardData } from '@stores/stores';
 	import { onDrop } from '@lib/hooks/onDrop';
 	import { onAdd } from '@lib/hooks/onAdd';
+	import { afterUpdate, onMount } from 'svelte';
+	import type { BoardDataType } from '@lib/types';
 
-	
+	onMount(() => {
+		// Check if local storage is set, if so return
+		if (localStorage.getItem('localStorageBoardData')) return;
+		// Set local storage to board data
+		$localStorageBoardData = JSON.stringify($boardData);
+	});
+
+	// After mount set board data from local storage
+	afterUpdate(() => {
+		// Set board data from local storage
+		const data: BoardDataType[] = JSON.parse($localStorageBoardData);
+		boardData.set(data);
+	});
 </script>
 
 {#each $boardData as column, columnIndex (column)}

@@ -1,5 +1,7 @@
 import { writable } from 'svelte/store';
 import type { BoardDataType } from '@lib/types';
+import { localStorageStore } from '@skeletonlabs/skeleton';
+import type { Writable } from 'svelte/store';
 
 export const disabled = writable(false);
 
@@ -65,3 +67,8 @@ export const boardData = writable<BoardDataType[]>([
 		]
 	}
 ]);
+
+export const localStorageBoardData: Writable<string> = localStorageStore(
+	'localStorageBoardData',
+	''
+);
