@@ -17,6 +17,11 @@ module.exports = {
 			},
 			fontFamily: {
 				sans: ['Livvic', 'sans-serif']
+			},
+			screens: {
+				'max-lg': { max: '1024px' },
+				'max-md': { max: '768px' },
+				'max-sm': { max: '375px' }
 			}
 		}
 	},

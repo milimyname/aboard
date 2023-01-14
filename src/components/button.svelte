@@ -13,7 +13,7 @@
 			bgColor = 'bg-p-cyan';
 			break;
 		case 'design':
-			bgColor = 'border-1 border-black';
+			bgColor = 'border-2 border-black text-black';
 			break;
 		case 'draft':
 			bgColor = 'bg-gray-200';

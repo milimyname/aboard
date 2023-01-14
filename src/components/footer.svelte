@@ -1,5 +1,5 @@
 <!-- Write legal terms -->
-<p class=" text-right ">
+<p class=" text-right max-md:text-sm">
 	It was designed and shared online by
 	<a href="https://twitter.com/milimyname">
 		<span class="font-bold">Mili</span>

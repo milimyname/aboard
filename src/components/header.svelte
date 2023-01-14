@@ -5,15 +5,15 @@
 </script>
 
 <!-- Project Dropdown -->
-<div class="flex gap-8 items-center">
-	<span class="text-6xl">🦊</span>
+<div class="flex  items-center max-md:justify-between max-md:flex-1">
+	<span class="text-6xl max-md:text-5xl">🦊</span>
 	<div class="flex items-center gap-4 dark:text-white">
-		<h1 class="text-4xl font-medium">Project Aboard</h1>
+		<h1 class="text-4xl font-medium max-md:text-3xl">Project Aboard</h1>
 		<ChevronDown size={20} />
 	</div>
 </div>
 <!-- Search -->
-<div class="flex items-center relative w-1/4 ">
+<div class="flex items-center relative w-1/4 max-md:hidden">
 	<input
 		type="text"
 		placeholder="Search"
@@ -26,7 +26,7 @@
 	</div>
 </div>
 <!-- Active users -->
-<div class="basis-32 flex items-center select-none relative left-4">
+<div class="basis-32 flex items-center select-none relative left-4  max-lg:hidden">
 	<Avatar
 		initials="JD"
 		background=" bg-yellow-300"

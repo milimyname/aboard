@@ -25,8 +25,10 @@ export function onDrop(
 	} = data;
 
 	// Find the issue
-
 	const issue: IssueType = currentBoardData[oldColumnIndex].issues[issueIndex];
+
+	// Change the status of the issue
+	issue.status = currentBoardData[columnIndex].status;
 
 	// Remove the issue from the old column
 	currentBoardData[oldColumnIndex].issues = currentBoardData[oldColumnIndex].issues.filter(

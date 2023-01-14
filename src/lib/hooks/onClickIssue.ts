@@ -19,7 +19,7 @@ export function onClickIssue(id: string) {
 		bgDrawer: 'bg-white',
 		blur: 'backdrop-blur-sm',
 		rounded: 'rounded-r-md',
-		width: 'w-1/3',
+		width: 'w-1/4 max-lg:w-8/12 max-md:w-10/12',
 		id: 'edit',
 		meta: issue
 	});

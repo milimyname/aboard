@@ -2,6 +2,8 @@
 	import { onFormSubmit } from '@lib/hooks/onFormSubmit';
 	import { X } from 'lucide-svelte';
 	import { drawerStore } from '@skeletonlabs/skeleton';
+	import { currentStatus } from '@stores/stores';
+	import { onMount } from 'svelte';
 
 	export let content = {
 		title: '',
@@ -10,8 +12,13 @@
 		label: '',
 		deadline: '',
 		description: '',
-		id: ''
+		id: '',
+		assignee: ''
 	};
+
+	onMount(() => {
+		$currentStatus = content.status;
+	});
 
 	export let id: string = '';
 
