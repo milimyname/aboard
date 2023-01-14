@@ -1,5 +1,5 @@
 import { boardData, currentStatus } from '@stores/stores';
-import type { BoardDataType, IssueType } from '@lib/types';
+import type { IssueType } from '@lib/types';
 import { drawerStore } from '@skeletonlabs/skeleton';
 
 export const onFormSubmit = (
