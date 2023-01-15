@@ -7,7 +7,7 @@ html,
 body {
 	@apply h-full overflow-hidden;
 }
-
+// Hide scrollbar width in Chrome, Opera, Safari
 body::-webkit-scrollbar {
 	display: none;
 }
@@ -17,9 +17,9 @@ body::-webkit-scrollbar {
 }
 
 // Hide scrollbar width in Chrome, Opera, Safari
-.scrollbar-hidden::-webkit-scrollbar {
+/* .scrollbar-hidden::-webkit-scrollbar {
 	display: none;
-}
+} */
 
 // Hide scrollbar width in IE and Edge
 .scrollbar-hidden-ie {
