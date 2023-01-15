@@ -8,10 +8,15 @@ body {
 	@apply h-full overflow-hidden;
 }
 
+body::-webkit-scrollbar {
+	display: none;
+}
+
 .fix-fill-color {
 	fill: white !important;
 }
 
+// Hide scrollbar width in Chrome, Opera, Safari
 .scrollbar-hidden::-webkit-scrollbar {
 	display: none;
 }
@@ -21,6 +26,7 @@ body {
 	-ms-overflow-style: none;
 }
 
+// Hide scrollbar width FX
 .scrollbar-hidden-fx {
 	scrollbar-width: none;
 	overflow: -moz-scrollbars-none;
