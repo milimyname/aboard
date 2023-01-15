@@ -10,7 +10,7 @@
 
 {#each $boardData as column, columnIndex (column)}
 	{@const capitalizedFirstLetter = column.status[0].toUpperCase() + column.status.slice(1)}
-	<section class="overflow-x-hidden scrollbar-hidden-fx scrollbar-hidden-ie">
+	<section class="overflow-x-hidden scrollbar-hidden scrollbar-hidden-fx scrollbar-hidden-ie">
 		<div
 			class="flex items-center justify-between sticky top-0 px-4 py-2 rounded-sm z-10 {`${
 				$storeLightSwitch ? 'bg-p-blue' : 'bg-black'
