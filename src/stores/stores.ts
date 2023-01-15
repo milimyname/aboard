@@ -1,5 +1,5 @@
 import { writable } from 'svelte/store';
-import type { BoardDataType, IssueType } from '@lib/types';
+import type { BoardDataType } from '@lib/types';
 
 export const disabled = writable(false);
 

@@ -12,7 +12,16 @@ body {
 	fill: white !important;
 }
 
-.scrollbar-hidden {
-	overflow-style: none;
+.scrollbar-hidden::-webkit-scrollbar {
+	display: none;
+}
+
+// Hide scrollbar width in IE and Edge
+.scrollbar-hidden-ie {
+	-ms-overflow-style: none;
+}
+
+.scrollbar-hidden-fx {
 	scrollbar-width: none;
+	overflow: -moz-scrollbars-none;
 }
